@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
-const PEZ_SIZE = 8;
+import Pez from "./pez";
+
+const PEZ_SIZE = 16;
 
 export default class Matrix extends Component {
   constructor(props) {
@@ -25,15 +27,23 @@ export default class Matrix extends Component {
 
   makePezGridModel() {
     const { width, height } = this.state;
-    const gridWidthAmount = Math.floor(width / PEZ_SIZE);
-    const gridHeightAmount = Math.floor(height / PEZ_SIZE);
+    const gridWidthAmount = Math.floor(width / (PEZ_SIZE + 2));
+    const gridHeightAmount = Math.floor(height / (PEZ_SIZE + 2));
 
-    const totalPezes = gridWidthAmount * gridHeightAmount;
+    console.log(width, height);
+    console.log(gridWidthAmount, gridHeightAmount);
 
-    var gridModel = Array.apply(null, { length: totalPezes }).map(
+    var gridModelX = Array.apply(null, { length: gridWidthAmount }).map(
       Number.call,
       Number
     );
+
+    var gridModel = gridModelX.map(gm => {
+      return Array.apply(null, { length: gridHeightAmount }).map(
+        Number.call,
+        Number
+      );
+    });
 
     this.setState({
       gridModel: gridModel
@@ -42,19 +52,26 @@ export default class Matrix extends Component {
 
   makePezGrid() {
     const { width, height, gridModel } = this.state;
-    return gridModel.map((gm, i) => {
-      return (
-        <div
-          key={i}
-          style={{ width: PEZ_SIZE, height: PEZ_SIZE, background: "red" }}
-        />
-      );
+    return gridModel.map((gmx, i) => {
+      const row = gmx.map((gmy, ii) => {
+        return <Pez key={`${i}_${ii}`} size={PEZ_SIZE} />;
+      });
+
+      return <div>{row}</div>;
     });
   }
 
   render() {
+    if (!this.state.gridModel.length) {
+      this.makePezGridModel();
+    }
+
     const pezGrid = this.makePezGrid();
 
-    return <div className="matrix">{pezGrid}</div>;
+    return (
+      <div className="matrix" style={{ display: "flex" }}>
+        {pezGrid}
+      </div>
+    );
   }
 }
