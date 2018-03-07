@@ -4,9 +4,9 @@ import React, { Component } from "react";
 
 import Pez from "../pez";
 
-const PEZ_SIZE = 10;
-const BORDER_SIZE = 5;
-const SPACING_SIZE = 5;
+const PEZ_SIZE = 18;
+const BORDER_SIZE = 2;
+const SPACING_SIZE = 4;
 
 export default class Matrix extends Component {
   constructor(props) {

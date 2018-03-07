@@ -5,7 +5,17 @@ import React, { Component } from "react";
 export default class Pez extends Component {
   state = {
     color: "",
-    colors: ["", "white", "yellow", "red", "purple", "green", "pink", "blue"]
+    colors: [
+      "",
+      "white",
+      "yellow",
+      "red",
+      "purple",
+      "orange",
+      "green",
+      "pink",
+      "blue"
+    ]
   };
   render() {
     const { size, borderWidth, spacing } = this.props;

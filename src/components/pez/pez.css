@@ -1,3 +1,36 @@
+$glowAmt: 32px;
+$glowOpacity: 1;
+$black: 0, 0, 0;
+$white: 255, 255, 255;
+$yellow: 218, 187, 34;
+$red: 227, 45, 31;
+$purple: 101, 55, 153;
+$green: 48, 156, 55;
+$pink: 194, 120, 137;
+$blue: 81, 174, 215;
+$orange: 245, 130, 75;
+$borderColorOpacity: 0.8;
+$nextBorderOpacity: 0.4;
+$backgroundOpacity: 0.9;
+
+$white-light: 255, 255, 255;
+$orange-light: 229, 193, 174;
+$yellow-light: 243, 239, 201;
+$red-light: 249, 118, 132;
+$purple-light: 159, 88, 187;
+$green-light: 48, 156, 55;
+$pink-light: 219, 160, 166;
+$blue-light: 150, 167, 187;
+
+$white-dark: 190, 201, 203;
+$orange-dark: 254, 118, 66;
+$yellow-dark: 217, 190, 15;
+$red-dark: 222, 44, 30;
+$purple-dark: 99, 53, 156;
+$green-dark: 48, 156, 55;
+$pink-dark: 196, 84, 100;
+$blue-dark: 27, 120, 187;
+
 .pez-frame {
   margin: 0;
   padding: 0;
@@ -8,53 +41,123 @@
   padding: 0;
   border: 1px solid #333;
   border-radius: 90px;
+  transition: all 0.15s;
 }
 
 .pez-frame:hover > .pez {
-  border: 1px solid #666;
-}
-
-.pez:hover {
+  border: 1px solid rgba($white, $nextBorderOpacity);
 }
 
 .pez.white {
-  box-shadow: 0px 0px 32px rgba(255, 255, 255, 0.9);
-  background-color: rgba(255, 255, 255, 0.9);
-  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 0px $glowAmt rgba($white, $glowOpacity);
+  background-color: rgba($white, $backgroundOpacity);
+  border-color: rgba($white, $borderColorOpacity);
+  animation: white-glow 0.25s ease-in forwards;
+}
+
+.pez-frame:hover > .pez.white {
+  border-color: rgba($white, $nextBorderOpacity);
 }
 
 .pez.yellow {
-  box-shadow: 0px 0px 32px rgba(218, 187, 34, 0.9);
-  background-color: rgba(218, 187, 34, 0.9);
-  border-color: rgba(218, 187, 34, 0.7);
+  box-shadow: 0px 0px $glowAmt rgba($yellow, $glowOpacity);
+  background-color: rgba($yellow, $backgroundOpacity);
+  border-color: rgba($yellow, $borderColorOpacity);
+  animation: yellow-glow 0.25s ease-in forwards;
+}
+
+.pez-frame:hover > .pez.yellow {
+  border-color: rgba($white, $nextBorderOpacity);
 }
 
 .pez.red {
-  box-shadow: 0px 0px 32px rgba(227, 45, 31, 0.9);
-  background-color: rgba(227, 45, 31, 0.9);
-  border-color: rgba(227, 45, 31, 0.7);
+  box-shadow: 0px 0px $glowAmt rgba($red, $glowOpacity);
+  background-color: rgba($red, $backgroundOpacity);
+  border-color: rgba($red, $borderColorOpacity);
+  animation: red-glow 0.25s ease-in forwards;
+}
+
+.pez-frame:hover > .pez.red {
+  border-color: rgba($white, $nextBorderOpacity);
 }
 
 .pez.purple {
-  box-shadow: 0px 0px 32px rgba(101, 55, 153, 0.9);
-  background-color: rgba(101, 55, 153, 0.9);
-  border-color: rgba(101, 55, 153, 0.7);
+  box-shadow: 0px 0px $glowAmt rgba($purple, $glowOpacity);
+  background-color: rgba($purple, $backgroundOpacity);
+  border-color: rgba($purple, $borderColorOpacity);
+  animation: purple-glow 0.25s ease-in forwards;
+}
+
+.pez-frame:hover > .pez.purple {
+  border-color: rgba($white, $nextBorderOpacity);
 }
 
 .pez.green {
-  box-shadow: 0px 0px 32px rgba(48, 156, 55, 0.9);
-  background-color: rgba(48, 156, 55, 0.9);
-  border-color: rgba(48, 156, 55, 0.7);
+  box-shadow: 0px 0px $glowAmt rgba($green, $glowOpacity);
+  background-color: rgba($green, $backgroundOpacity);
+  border-color: rgba($green, $borderColorOpacity);
+  animation: green-glow 0.25s ease-in forwards;
+}
+
+.pez-frame:hover > .pez.orange {
+  border-color: rgba($orange, $nextBorderOpacity);
+}
+
+.pez.orange {
+  box-shadow: 0px 0px $glowAmt rgba($orange, $glowOpacity);
+  background-color: rgba($orange, $backgroundOpacity);
+  border-color: rgba($orange, $borderColorOpacity);
+  animation: orange-glow 0.25s ease-in forwards;
+}
+
+.pez-frame:hover > .pez.green {
+  border-color: rgba($white, $nextBorderOpacity);
 }
 
 .pez.pink {
-  box-shadow: 0px 0px 32px rgba(194, 120, 137, 0.9);
-  background-color: rgba(194, 120, 137, 0.9);
-  border-color: rgba(194, 120, 137, 0.7);
+  box-shadow: 0px 0px $glowAmt rgba($pink, $glowOpacity);
+  background-color: rgba($pink, $backgroundOpacity);
+  border-color: rgba($pink, $borderColorOpacity);
+  animation: pink-glow 0.25s ease-in forwards;
+}
+
+.pez-frame:hover > .pez.pink {
+  border-color: rgba($white, $nextBorderOpacity);
 }
 
 .pez.blue {
-  box-shadow: 0px 0px 32px rgba(81, 174, 215, 0.9);
-  background-color: rgba(81, 174, 215, 0.9);
-  border-color: rgba(81, 174, 215, 0.7);
+  box-shadow: 0px 0px $glowAmt rgba($blue, $glowOpacity);
+  background-color: rgba($blue, $backgroundOpacity);
+  border-color: rgba($blue, $borderColorOpacity);
+  animation: blue-glow 0.25s ease-in forwards;
 }
+
+.pez-frame:hover > .pez.blue {
+  border-color: rgba($white, $nextBorderOpacity);
+}
+
+@define-mixin glower $name, $colorCorona, $colorCore {
+  @-webkit-keyframes $(name) {
+    from {
+      box-shadow: 0 0 10px rgba($colorCore, 1), 0 0 20px rgba($colorCore, 1),
+        0 0 30px rgba($colorCore, 1), 0 0 40px rgba($colorCore, 1),
+        0 0 70px rgba($colorCorona, 1), 0 0 80px rgba($colorCorona, 1),
+        0 0 100px rgba($colorCorona, 1), 0 0 150px rgba($colorCorona, 1);
+    }
+    to {
+      box-shadow: 0 0 5px rgba($colorCore, 1), 0 0 10px rgba($colorCore, 1),
+        0 0 15px rgba($colorCore, 1), 0 0 20px rgba($colorCorona, 1),
+        0 0 35px rgba($colorCorona, 1), 0 0 40px rgba($colorCorona, 1),
+        0 0 50px rgba($colorCorona, 1), 0 0 75px rgba($colorCorona, 1);
+    }
+  }
+}
+
+@mixin glower white-glow, $white-light, $white-dark;
+@mixin glower yellow-glow, $yellow-light, $yellow-dark;
+@mixin glower red-glow, $red-light, $red-dark;
+@mixin glower purple-glow, $purple-light, $purple-dark;
+@mixin glower green-glow, $green-light, $green-dark;
+@mixin glower pink-glow, $pink-light, $pink-dark;
+@mixin glower blue-glow, $blue-light, $blue-dark;
+@mixin glower orange-glow, $orange-light, $orange-dark;
