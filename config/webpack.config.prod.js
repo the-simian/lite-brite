@@ -185,7 +185,7 @@ module.exports = {
                         // https://github.com/facebookincubator/create-react-app/issues/2677
                         ident: "postcss",
                         plugins: () => [
-                          require("postcss-mixins")(require("./css-mixins")),
+                          require("postcss-mixins")({}),
                           require("postcss-simple-vars"),
                           require("postcss-flexbugs-fixes"),
                           autoprefixer({
