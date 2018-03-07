@@ -1,8 +1,8 @@
 {
   "name": "lite-brite",
   "version": "0.1.0",
-  "private": false,
-  "homepage": "https://simiancraft.github.io/lite-brite",
+  "private": true,
+  "homepage": "https://the-simian.github.io/lite-brite",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",

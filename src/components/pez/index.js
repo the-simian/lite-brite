@@ -8,14 +8,17 @@ export default class Pez extends Component {
     colors: ["", "white", "yellow", "red", "purple", "green", "pink", "blue"]
   };
   render() {
-    const { size } = this.props;
+    const { size, borderWidth, spacing } = this.props;
     const { color } = this.state;
+
+    const s = size + spacing + spacing + borderWidth + borderWidth;
+
     return (
       <div
-        className={`pez ${color}`}
+        className={`pez-frame`}
         style={{
-          width: size,
-          height: size
+          width: s,
+          height: s
         }}
         onClick={() => {
           const { colors, color } = this.state;
@@ -26,7 +29,17 @@ export default class Pez extends Component {
             color: colors[next] ? colors[next] : colors[0]
           });
         }}
-      />
+      >
+        <div
+          className={`pez ${color}`}
+          style={{
+            borderWidth: borderWidth,
+            width: size,
+            height: size,
+            margin: spacing
+          }}
+        />
+      </div>
     );
   }
 }

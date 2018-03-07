@@ -1,8 +1,12 @@
+import "./index.css";
+
 import React, { Component } from "react";
 
-import Pez from "./pez";
+import Pez from "../pez";
 
-const PEZ_SIZE = 16;
+const PEZ_SIZE = 10;
+const BORDER_SIZE = 5;
+const SPACING_SIZE = 5;
 
 export default class Matrix extends Component {
   constructor(props) {
@@ -27,11 +31,9 @@ export default class Matrix extends Component {
 
   makePezGridModel() {
     const { width, height } = this.state;
-    const gridWidthAmount = Math.floor(width / (PEZ_SIZE + 2));
-    const gridHeightAmount = Math.floor(height / (PEZ_SIZE + 2));
-
-    console.log(width, height);
-    console.log(gridWidthAmount, gridHeightAmount);
+    const pezSize = PEZ_SIZE + SPACING_SIZE * 2 + BORDER_SIZE * 2;
+    const gridWidthAmount = Math.floor(width / pezSize);
+    const gridHeightAmount = Math.floor(height / pezSize);
 
     var gridModelX = Array.apply(null, { length: gridWidthAmount }).map(
       Number.call,
@@ -54,10 +56,17 @@ export default class Matrix extends Component {
     const { width, height, gridModel } = this.state;
     return gridModel.map((gmx, i) => {
       const row = gmx.map((gmy, ii) => {
-        return <Pez key={`${i}_${ii}`} size={PEZ_SIZE} />;
+        return (
+          <Pez
+            key={`${i}_${ii}`}
+            size={PEZ_SIZE}
+            borderWidth={BORDER_SIZE}
+            spacing={SPACING_SIZE}
+          />
+        );
       });
 
-      return <div>{row}</div>;
+      return <div className={`matrix-row`}>{row}</div>;
     });
   }
 
